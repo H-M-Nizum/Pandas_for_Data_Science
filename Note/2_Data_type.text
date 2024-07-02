@@ -30,3 +30,22 @@ Pandas data types can be broadly categorized into three main types: (int4, float
 * Choosing the Right Data Type: 
     It is important to choose the right data type for your data. This will help to ensure that your data is stored and manipulated correctly. 
     For example, if you are storing a date, you should use a datetime64 data type. If you are storing a number, you should use an int or float data type.
+
+
+--------------------------------------------------------- Built in Function ------------------------------------------------------------------
+1) df.info() - Display DataFrame total information
+2) df.dtypes - Display DataFrame Data Type
+
+3) Change Data type :- astype()
+    data = {'age' : [1,2,3,4,5,56], 'salary' : [22,33,44,55,66,77]}
+    df = pd.DataFrame(data)
+    df['age'] = df['age'].astype('int32')
+
+4) All string or link is a object
+
+5) Convert object to Datetime :- pd.to_datetime(date)
+    date = ['2023-10-23', '2024-05-12', '2022-05-11']
+    timestams = pd.to_datetime(date)    # convert
+    df = pd.DataFrame({'Date' : timestams})     # Create DataFrame
+
+    
