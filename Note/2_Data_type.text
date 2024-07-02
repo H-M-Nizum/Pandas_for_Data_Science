@@ -1,0 +1,32 @@
+Pandas data types can be broadly categorized into three main types: (int4, float64, object, datetime)
+1) Numeric Data Types:
+    • Integer: 
+        Integer data types store whole numbers, such as 1, 10, and -100. 
+        The most common integer data types in pandas are int8, int16, int32, and int64. 
+    • Float: 
+        Float data types store floating-point numbers, which are numbers that can have decimal places. 
+        The most common float data types in pandas are float16, float32, and float64.
+
+2) Date and Time Data Types 
+    • Timestamp: 
+        Timestamp data types store dates and times. The most common timestamp data type in pandas is datetime64[ns], 
+        which stores dates and times with nanosecond precision. 
+    • Timedelta: 
+        Timedelta data types store differences between dates and times. The most common timedelta data type in pandas is timedelta64 [ns], 
+        which stores differences in nanoseconds. 
+    
+3) Categorical Data Types 
+    • Category: 
+        Category data types store categorical data, which is data that can be classified into a finite number of categories. 
+        Categorical data is often used to store ordinal or nominal data. 
+    
+4) Other Data Types 
+    • String: 
+        String data types store strings of text. The most common string data type in pandas is object. 
+    • Boolean: 
+        Boolean data types store Boolean values, which are values that can be either True or False. 
+        The most common boolean data type in pandas is bool.
+
+* Choosing the Right Data Type: 
+    It is important to choose the right data type for your data. This will help to ensure that your data is stored and manipulated correctly. 
+    For example, if you are storing a date, you should use a datetime64 data type. If you are storing a number, you should use an int or float data type.
