@@ -26,3 +26,39 @@
       print(s*2)           # multiplies all Series data by 2
       print(np.sqrt(s))    # computes the square root of all Series data
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+(1) Handling indexes : 
+    i) Setting the index -
+        Index labels need not be integers. The programmer can set the index labels by passing a list of indexes when constructing the Series object.
+          s = pd.Series([10,20,30,40,50], index = ['a','b','c','d','e'])
+          print(s['c'])
+          x = s['c']+s['a']
+          y = s[['b','e']]
+          print(x, y)
+
+    ii) Changing index labels when using a dict - 
+        When constructing a Series from a dict you can reject the dictionary key labels and assign a new index list for the Series object.
+          data = {'a':1,
+                  'b':2,
+                  'c':3,
+                  'd':4,
+                  'e':5}
+        new_ind = ['A','B','C','D','E']
+        s = pd.Series(sorted(data.values()), index=new_ind)
+
+    iii) rename() - 
+          If, you need to change specific labels after the Series has been constructed you can use the rename() method, as in the examples below.
+              s = s.rename({'a':'A', 'd':'D'})
+
+    iv) reindex() - 
+          reindex() works both for Series and DataFrame objects and resets the index labels in these objects. Additionally it offers the functionality of setting default values for new indexes other than NaN.
+                    snew = s.reindex(new_ind, fill_value='Unknown')
+
+(2) Handling the 'NaN' (missing) values :
+        . Many times data have missing values that are represented as NaN in a Series object
+        . Identifying NaN values is easy with the isnull() and notnull() methods
+              s = pd.Series(data)
+              print(s,'\n')  # Print full series
+              print(s.isnull(),'\n') # Print a series contain bool value based on null value
+              print(s.notnull())     # Print a series contain bool value based on null value
+                                                                                                                                                                                
