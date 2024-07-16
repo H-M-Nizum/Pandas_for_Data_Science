@@ -34,3 +34,63 @@ Accessing data in a DataFrame object can be done in many ways. Below we present 
                 * Provide a list of column position. Note the list (not simply an indeger index)  -> df[[1]]
                 * For more columns privide a list of column positions (note the double brackets)  -> df[[1, 3, 5]]
                 * List comprehensions can also be used to define a list of integer indices        -> df[[i for i in range(3)]]
+
+
+2. Accessing data by row :- 
+        Selecting rows can be done in three ways:
+                a) Using the .loc indexer for selection by label -
+                        # Note that a row is now constructed as a new DataFrame
+                                gr = df.loc[['GRC']]
+                        # You can provide a single label as an single index (not in a list). In this case the row is now constructed as a new Series object
+                                gr = df.loc['GRC']
+                        # More rows: provide the list of labels
+                                df.loc[['GRC','ESP','PRT']]
+                        # Slicing rows is also possible (note that single brackets are used)
+                                df.loc['ESP':'GRC']
+
+                b) Using the .iloc indexer for selection by position -
+                        # Provide the list of row positions
+                                gr = df.iloc[[2]]
+                        # You can provide a single label as an single index (not in a list). In this case the row is now constructed as a new Series object
+                                esp = df.iloc[0]
+                        #More rows: provide the list of integer position indexes
+                                df.iloc[[2,4,6]]
+                        # Slicing rows is also possible (note that single brackets are used)
+                                df.iloc[2:5]
+
+                c) Using the .ix indexer -
+                        # ix is the most general indexer and supports bot inputs in label and integer format. Before using it however it is advisable to read the pandas documentation on .ix (here)
+                        # .ix with row label
+                                df.ix[['PRT']]
+                        # .ix with list of row positions
+                                df.ix[[0,2,4]]
+                        # Slicing with labels
+                                df.ix['ESP':'GRC']
+                        # Slicing with positions
+                                df.ix[3:5]
+
+
+3. Accessing scalars (single data items)
+        Selecting scalars can be done in two major ways:
+                a) Using the [ ] notation to provide column & row indexes - 
+                                ita = df['Country']['ITA']
+                        # Also works without brackets for non-digit string indices
+                                esp = df.Country.ESP
+
+                b) Using the .at and .iat indexers - 
+                        # Using the .at indexer
+                        # Provide first the row label and then the column name (remember: .at is a non-integer indexer)
+                                d = df.at['FRA','Country'] 
+                                d = df.at['FRA','2015'] 
+                        
+                        # Using the .iat indexer
+                                d = df.iat[0,0] 
+                                d = df.iat[7,9] 
+
+
+
+
+
+
+
+
